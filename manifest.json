@@ -1,0 +1,16 @@
+{
+    "name": "Portfolio Web by maxime",
+    "short_name": "Maxime Web Folio",
+    "start_url": ".",
+    "background_color": "#1f242d",
+    "theme_color": "#323946",
+    "display": "standalone",
+    "icons": [
+        {
+            "src": "images/OIG (1).jpg",
+            "size": "96x96",
+            "type": "image/jpeg"
+        }
+    ]
+
+}
