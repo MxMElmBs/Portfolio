@@ -6,79 +6,10 @@ if ("serviceWorker" in navigator) {
     console.log("SW Registration failed!");
     console.log(error);
   });
-}
-
-
-// script.js
-
-let deferredPrompt;
-const installBtn = document.getElementById('installBtn');
-
-// Listen for the beforeinstallprompt event
-window.addEventListener('beforeinstallprompt', (e) => {
-  // Prevent the mini-infobar from appearing on mobile
-  e.preventDefault();
-  deferredPrompt = e;
-  
-  // Show the install button
-  installBtn.style.display = 'block';
-  
-  // Handle the install button click
-  installBtn.addEventListener('click', () => {
-    // Show the install prompt
-    deferredPrompt.prompt();
-    
-    // Wait for the user to respond to the prompt
-    deferredPrompt.userChoice.then((choiceResult) => {
-      if (choiceResult.outcome === 'accepted') {
-        console.log('User accepted the install prompt');
-      } else {
-        console.log('User dismissed the install prompt');
-      }
-      deferredPrompt = null;
-    });
-  });
-});
-
-// Listen for the appinstalled event
-window.addEventListener('appinstalled', (e) => {
-  console.log('PWA was installed');
-});
+} 
 
 
 
-
-// Define the menuIcon by selecting the DOM element with ID 'menu-icon'
-const menuIcon = document.getElementById('menu-icon');
-
-// Optional: Define the navbar for toggling
-const navbar = document.querySelector('.navbar');
-let sections = document.querySelectorAll('section');
-let navLinks = document.querySelectorAll('header nav a');
-window.onscroll = () =>{
-    sections.forEach(sec => {
-        let top = window.scrollY;
-        let offset = sec.offsetTop - 150;
-        let height = sec.offsetHeight;
-        let id = sec.getAttribute('id');
-
-        if(top >= offset && top < offset + height){
-            navLinks.forEach(links => {
-                links.classList.remove('active');
-                document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
-            });
-        };
-    });
-
-    let header = document.querySelector('header');
-    header.classList.toggle('sticky', window.scrollY > 100);
-
-    menuIcon.classList.remove('bx-x');
-    navbar.classList.remove('active');
-};
-
-installBtn.classList.remove('btn-hidden');
-installBtn.classList.add('btn-visible');
 
 
 
