@@ -48,7 +48,11 @@ window.addEventListener('appinstalled', (e) => {
 
 
 
+// Define the menuIcon by selecting the DOM element with ID 'menu-icon'
+const menuIcon = document.getElementById('menu-icon');
 
+// Optional: Define the navbar for toggling
+const navbar = document.querySelector('.navbar');
 let sections = document.querySelectorAll('section');
 let navLinks = document.querySelectorAll('header nav a');
 window.onscroll = () =>{
