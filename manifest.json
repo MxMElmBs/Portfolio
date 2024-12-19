@@ -6,11 +6,21 @@
     "theme_color": "#323946",
     "display": "standalone",
     "icons": [
-        {
-            "src": "images/OIG (1).jpg",
-            "size": "96x96",
-            "type": "image/jpeg"
-        }
+      {
+        "src": "images/OIG (1) (2).jpg",
+        "sizes": "96x96",
+        "type": "image/jpeg"
+      },
+      {
+        "src": "images/OIG (1) (1).jpg",
+        "sizes": "192x192",
+        "type": "image/jpeg"
+      },
+      {
+        "src": "images/OIG (1).jpg",
+        "sizes": "512x512",
+        "type": "image/jpeg"
+      }
     ]
-
-}
+  }
+  
