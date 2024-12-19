@@ -9,39 +9,7 @@ if ("serviceWorker" in navigator) {
 }
 
 
-let deferredPrompt;
-const installBtn = document.getElementById('installBtn'); // Bouton d'installation
 
-// Lorsque l'événement 'beforeinstallprompt' est déclenché
-window.addEventListener('beforeinstallprompt', (e) => {
-  // Empêcher le navigateur de montrer le prompt par défaut
-  e.preventDefault();
-  deferredPrompt = e;
-
-  // Afficher le bouton d'installation
-  installBtn.style.display = 'block';
-
-  // Ajouter un événement au clic sur le bouton d'installation
-  installBtn.addEventListener('click', () => {
-    // Afficher le prompt d'installation personnalisé
-    deferredPrompt.prompt();
-
-    // Attendre la réponse de l'utilisateur (acceptation ou refus)
-    deferredPrompt.userChoice.then((choiceResult) => {
-      if (choiceResult.outcome === 'accepted') {
-        console.log('L\'utilisateur a accepté l\'installation');
-      } else {
-        console.log('L\'utilisateur a refusé l\'installation');
-      }
-      deferredPrompt = null; // Réinitialiser l'événement
-    });
-  });
-});
-
-// Ajouter un gestionnaire d'événements pour la mise à jour de l'installabilité
-window.addEventListener('appinstalled', (e) => {
-  console.log('PWA installée');
-});
 
 
 
