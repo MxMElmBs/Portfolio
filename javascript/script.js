@@ -9,48 +9,42 @@ if ("serviceWorker" in navigator) {
 }
 
 
-let deferredPrompt;
-const installBtn = document.getElementById('installBtn'); // Bouton d'installation
+// script.js
 
-// Lorsque l'événement 'beforeinstallprompt' est déclenché
+let deferredPrompt;
+const installBtn = document.getElementById('installBtn');
+
+// Listen for the beforeinstallprompt event
 window.addEventListener('beforeinstallprompt', (e) => {
-  // Empêcher le navigateur de montrer le prompt par défaut
+  // Prevent the mini-infobar from appearing on mobile
   e.preventDefault();
   deferredPrompt = e;
-
-  // Afficher le bouton d'installation
+  
+  // Show the install button
   installBtn.style.display = 'block';
-
-  // Ajouter un événement au clic sur le bouton d'installation
+  
+  // Handle the install button click
   installBtn.addEventListener('click', () => {
-    // Afficher le prompt d'installation personnalisé
+    // Show the install prompt
     deferredPrompt.prompt();
-
-    // Attendre la réponse de l'utilisateur (acceptation ou refus)
+    
+    // Wait for the user to respond to the prompt
     deferredPrompt.userChoice.then((choiceResult) => {
       if (choiceResult.outcome === 'accepted') {
-        console.log('L\'utilisateur a accepté l\'installation');
+        console.log('User accepted the install prompt');
       } else {
-        console.log('L\'utilisateur a refusé l\'installation');
+        console.log('User dismissed the install prompt');
       }
-      deferredPrompt = null; // Réinitialiser l'événement
+      deferredPrompt = null;
     });
   });
 });
 
-// Ajouter un gestionnaire d'événements pour la mise à jour de l'installabilité
+// Listen for the appinstalled event
 window.addEventListener('appinstalled', (e) => {
-  console.log('PWA installée');
+  console.log('PWA was installed');
 });
 
-
-
-let menuIcon = document.querySelector('#menu-icon');
-let navbar = document.querySelector('.navbar');
-menuIcon.onclick = () => {
-    menuIcon.classList.toggle('bx-x');
-    navbar.classList.toggle('active');
-};
 
 
 

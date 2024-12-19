@@ -4,9 +4,9 @@ self.addEventListener("install", e => {
       return cache.addAll([
         "./", 
         "./css/style.css", 
-        "./images/images/OIG12.jpg", 
-        "./images/images/OIG11.jpg", 
-        "./images/images/OIG1.jpg"
+        "./images/OIG12.jpg", 
+        "./images/OIG11.jpg", 
+        "./images/OIG1.jpg"
       ]); 
     })
   );
