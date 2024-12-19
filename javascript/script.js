@@ -1,4 +1,4 @@
-if("serviceWorker" in navigator){
+if ("serviceWorker" in navigator) {
   navigator.serviceWorker.register("sw.js").then(registration => {
     console.log("SW Registered!");
     console.log(registration);
@@ -6,11 +6,11 @@ if("serviceWorker" in navigator){
     console.log("SW Registration failed!");
     console.log(error);
   });
-};
+}
 
 
 let deferredPrompt;
-const installBtn = document.getElementById('installBtn'); // Récupérer le bouton d'installation
+const installBtn = document.getElementById('installBtn'); // Bouton d'installation
 
 // Lorsque l'événement 'beforeinstallprompt' est déclenché
 window.addEventListener('beforeinstallprompt', (e) => {
@@ -19,7 +19,7 @@ window.addEventListener('beforeinstallprompt', (e) => {
   deferredPrompt = e;
 
   // Afficher le bouton d'installation
-  installBtn.style.display = 'block'; // Montre le bouton d'installation
+  installBtn.style.display = 'block';
 
   // Ajouter un événement au clic sur le bouton d'installation
   installBtn.addEventListener('click', () => {
@@ -38,7 +38,7 @@ window.addEventListener('beforeinstallprompt', (e) => {
   });
 });
 
-// Ajoutez un gestionnaire d'événements pour la mise à jour de l'installabilité
+// Ajouter un gestionnaire d'événements pour la mise à jour de l'installabilité
 window.addEventListener('appinstalled', (e) => {
   console.log('PWA installée');
 });
