@@ -58,6 +58,15 @@
     align-items: center;
   }
 
+  .btn-hidden {
+    display: none;
+  }
+  
+  .btn-visible {
+    display: block; /* ou flex, selon le besoin */
+  }
+  
+
   .header.sticky{
     border-bottom: 1rem solid var(--second-bg-color);
   }

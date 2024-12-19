@@ -77,6 +77,10 @@ window.onscroll = () =>{
     navbar.classList.remove('active');
 };
 
+installBtn.classList.remove('btn-hidden');
+installBtn.classList.add('btn-visible');
+
+
 
 /*const circles = document.querySelectorAll('.circle');
 circles.forEach(elem => {
